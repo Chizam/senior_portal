@@ -5,6 +5,8 @@
 /*
  * General styles
  */
+ 
+ 
 #playground-container {
     height: 500px;
     overflow: hidden !important;
@@ -16,6 +18,9 @@ body, html{
  	font-family: 'Oxygen', sans-serif;
     background-size: cover;
 }
+#li>a{
+   color: #669d89;
+}
 
 .header3 #main-menu > ul.menu {
     float: none;
@@ -26,6 +31,7 @@ body, html{
     overflow-x: none;
     
 }
+
 
 #main-menu > ul.menu {
     float: right;
