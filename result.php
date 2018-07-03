@@ -5,6 +5,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include('includes/config.php');
 ?>
+
+<script src="jquery/jquery-2.2.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -76,29 +79,66 @@ li{
     font-size: 18px;
 }
         
+          a.red{
+            color:#669d89 !important;
+            font-size: 18px;
+            font-family: 'Oxygen', sans-serif;
+         }
+         
+         li>a.red:hover{
+            color: #669d89 !important;
+            background-color: ;
+         }
+         
+         li>a.active{
+            color: white !important;
+         }
+         a.active:hover{
+            background-color:#f27c7e !important;
+            color: white !important;
+         }
+         button.color{background-color: green !important;
+         }
 	</style>
 		
     </head>
    <body style="background-image: url(images/back.png);">
     
-    <div class="header3">
-    <a><img  src="images/lagos.png" width="100%"/> </a> 
+    <div class="header3" style="width:100%;">
+    <a href="http://lsmjcmeiran.org/"><img  src="images/lagos.png" width="100%"/> </a> 
     
     <div class="nav">
+  
+   <nav class="navbar navbar-inverse main-menu"  style="background-color:#f4df90; border: none;">
+  <div class="container-fluid text-center">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle color" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar "></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>   
+                             
+      </button>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav" style="padding-left: 90px;">
+        
+            <li > <a href="http://lsmjcmeiran.org/" class="red">Home</a></li> 
+            <li> <a href="http://lsmjcmeiran.org/index.php/about/" class="red"> About  </a> </li> 
+            <li> <a href="http://lsmjcmeiran.org/index.php/academics/" class="red">Academics</a></li> 
+            <li>  <a href="http://lsmjcmeiran.org/index.php/gallery/" class="red">Gallery</a></li> 
+            <li> <a href="http://lsmjcmeiran.org/index.php/parents-forum/" class="red">Parents&apos; Forum</a></li>
+            <li> <a href="http://portal.lsmjcmeiran.org/" class="active">Result Portal </a></li>
+            <li> <a href="http://lsmjcmeiran.org/index.php/news/" class="red">News</a> </li>
+            <li><a href="http://lsmjcmeiran.org/index.php/contact/" class="red">Contact</a></li>
+        </ul>
+      
+    </div>
+  </div>
+</nav>
     
-    <nav  id="main-menu">
-    <ul id="menu-main-menu" class="menu">
-    <li> <a href="http://lsmjcmeiran.org/">Home</a></li> 
-    <li> <a href="http://lsmjcmeiran.org/index.php/about/"> About  </a> </li> 
-    <li> <a href="http://lsmjcmeiran.org/index.php/academics/">Academics</a></li> 
-    <li>  <a href="http://lsmjcmeiran.org/index.php/gallery/">Gallery</a></li> 
-    <li> <a href="http://lsmjcmeiran.org/index.php/parents-forum/">Parents&apos; Forum</a></li>
-    <li> <a href="http://portal.lsmjcmeiran.org/" class="active">Result Portal </a></li>
-    <li> <a href="http://lsmjcmeiran.org/index.php/news/">News</a> </li>
-    <li><a href="http://lsmjcmeiran.org/index.php/contact/">Contact</a></li>
-    </ul>
-    </nav>
-    </div>  <div class="main-wrapper">
+    </div>
+    </div> <div class="main-wrapper">
             <div class="content-wrapper">
                 <div class="content-container">
 
