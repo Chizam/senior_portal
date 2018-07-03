@@ -11,14 +11,15 @@ include('includes/config.php');
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>Result Management System</title>
+        <title>LSMJC - Result Portal</title>
         <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" />
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/layout.css"/>
         <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" />
         <link rel="stylesheet" href="css/animate-css/animate.min.css" media="screen" />
         <link rel="stylesheet" href="css/lobipanel/lobipanel.min.css" media="screen" />
-        <link rel="stylesheet" href="css/prism/prism.css" media="screen" />
-        <link rel="stylesheet" href="css/main.css" media="screen" />
-        <script src="js/modernizr/modernizr.min.js"></script>
+         <link rel="stylesheet" href="css/main.css" media="screen" /> 
+
 	<style>
         td:nth-child(odd) {background-color: #567C07}
 		.td_1{
@@ -47,12 +48,57 @@ include('includes/config.php');
              text-transform: uppercase;
 		}
         
+#main-menu > ul.menu {
+    float: right;
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    position: relative;
+    z-index: 100;
+        
+}
+#menu-main-menu {
+    font-family: 'Droid Serif', serif;
+    
+}
+
+ul {
+    margin-bottom: 20px;
+    list-style: none;
+    list-style-position: inside;
+    
+}
+li{
+    display: inline;
+    text-align: center;
+    list-style: none;
+    margin: 14px;
+    font-size: 18px;
+}
         
 	</style>
 		
     </head>
-    <body style="background-color: green;">
-        <div class="main-wrapper">
+   <body style="background-image: url(images/back.png);">
+    
+    <div class="header3">
+    <a><img  src="images/lagos.png" width="100%"/> </a> 
+    
+    <div class="nav">
+    
+    <nav  id="main-menu">
+    <ul id="menu-main-menu" class="menu">
+    <li> <a href="http://lsmjcmeiran.org/">Home</a></li> 
+    <li> <a href="http://lsmjcmeiran.org/index.php/about/"> About  </a> </li> 
+    <li> <a href="http://lsmjcmeiran.org/index.php/academics/">Academics</a></li> 
+    <li>  <a href="http://lsmjcmeiran.org/index.php/gallery/">Gallery</a></li> 
+    <li> <a href="http://lsmjcmeiran.org/index.php/parents-forum/">Parents&apos; Forum</a></li>
+    <li> <a href="http://portal.lsmjcmeiran.org/" class="active">Result Portal </a></li>
+    <li> <a href="http://lsmjcmeiran.org/index.php/news/">News</a> </li>
+    <li><a href="http://lsmjcmeiran.org/index.php/contact/">Contact</a></li>
+    </ul>
+    </nav>
+    </div>  <div class="main-wrapper">
             <div class="content-wrapper">
                 <div class="content-container">
 
@@ -61,11 +107,6 @@ include('includes/config.php');
 
                     <div class="main-page">
                         <div class="container-fluid">
-                            <div class="row page-title-div">
-                                <div class="col-md-12">
-                                    <h2 class="title" align="center">LSMJC - Result Checker Portal</h2>
-                                </div>
-                            </div>
                             <!-- /.row -->
                           
                             <!-- /.row -->
@@ -141,8 +182,10 @@ $resultss=$stmt->fetchAll(PDO::FETCH_OBJ);//print_r($resultss);*/
 if (mysqli_num_rows($result) > 0){//echo "affected records = ".count($result)."<br>";
 $cnt=1;
 
-//foreach($resultss as $row)
-while($row = mysqli_fetch_assoc($result)) {//print_r($row);?>
+//foreach($resultss as $row);
+while($row = mysqli_fetch_assoc($result)) {//print_r($row);
+$term = $row['Term']
+?>
  <table>
  <tr>
  <td class="td_1"><b>Student Name :</b></td>
@@ -211,14 +254,14 @@ while($row = mysqli_fetch_assoc($results)) {
     if(!empty($file_name)){
         //
         $trimmed_filename = str_replace(".pdf", "", $file_name);
-        echo "filename = $file_name....trimmed filename = $trimmed_filename<br>";
+        //echo "filename = $file_name....trimmed filename = $trimmed_filename<br>";
     } 
     
     if (strpos($examno,$trimmed_filename) !== false) {
          //$trimmed_filename.='.pdf';
          //echo "2. examno = $examno....trimmed filename = $trimmed_filename<br>";
        echo" <tr>
-            <th scope='row' colspan='2'>Your Result for the Selected period is available</th>           
+            <th scope='row' colspan='2'>Your Result for $term TERM is available</th>           
             <td style='text-align:center'><b><a id='download1' onclick='downloads()'  href='#'>Click here to download </a> </b></td>
             </tr>";
          /*<td style='text-align:center'><b><a id='download1' onclick='downloads()'  target='_blank'  href='#'>Click here to download </a> </b></td>
@@ -261,7 +304,7 @@ while($row = mysqli_fetch_assoc($results)) {
 
  <?php } else { ?>     
 <div class="alert alert-warning left-icon-alert" role="alert">
-                                            <strong>Notice!</strong> Your result not declare yet
+                                            <strong>Notice!</strong> Your result is not yet available
  <?php }
 ?>
                                         </div>
@@ -290,8 +333,8 @@ echo htmlentities("Invalid STudent Registration Id");
 
                                     <div class="form-group">
                                                            
-                                                            <div class="col-sm-6">
-                                                               <a href="index.php" style="color: #fff;">Back to Home</a>
+                                                            <div class="col-sm-6" >
+                                                               <a href="http://portal.lsmjcmeiran.org/" style="color: #fff;"><span style="color: green;">Back to Result Checker</span></a>
                                                             </div>
                                                         </div>
 
@@ -313,26 +356,46 @@ echo htmlentities("Invalid STudent Registration Id");
             <!-- /.content-wrapper -->
 
         </div>
+        <div class="row" style="background-color: #3A863A; text-align: center;">
+             <div class="col-md-6">
+             <small>
+             <p class="text-muted text-center" style=" background-color: #3A863A; color:white; text-align: center; padding: 20px;" > Copyright &copy; <?php echo date("Y");?> Lagos State Model College - Meiran </p>
+             </small>
+             
+             </div>
+              <div class="col-md-6">
+              <small>
+             <p  class="text-muted text-center" style=" background-color: #3A863A; gray; text-align: center; padding: 20px;">
+             <span style="color: #fff;">Developed By</span><a style="text-decoration:none; color: #fff;"href="http://boldlinks.com.ng/"> Boldlinks Technology Solutions</a>
+             
+             </p> </small>
+             </div>
+         </div>
         <!-- /.main-wrapper -->
 
         <!-- ========== COMMON JS FILES ========== -->
-        <script src="js/jquery/jquery-2.2.4.min.js"></script>
+        <script src="jquery/jquery-2.2.4.min.js"></script>
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
         <script src="js/bootstrap/bootstrap.min.js"></script>
         <script src="js/pace/pace.min.js"></script>
         <script src="js/lobipanel/lobipanel.min.js"></script>
         <script src="js/iscroll/iscroll.js"></script>
+        <link rel="stylesheet" href="css/prism/prism.css" media="screen" />
+        <script src="js/modernizr/modernizr.min.js"></script>
+       
 
         <!-- ========== PAGE JS FILES ========== -->
         <script src="js/prism/prism.js"></script>
 
-        <!-- ========== THEME JS ========== -->
-        <script src="js/main.js"></script>
+        <!-- ========== THEME JS ========== 
+        <script src="js/main.js"></script>-->
         <script>
         
         /*function downloads(){
             document.getElementById("download1").src = "download-result.php?file=./result_uploads/uploads/filename";
         }*/
         function downloads(){
+          
           var filenames = '<?=$trimmed_filename; ?>';
           $("#download1").on('click', function() {
               //alert("inside onclick And filename "+ filenames);
