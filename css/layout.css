@@ -71,25 +71,10 @@ a:active {
 }*/
 /* unvisited link */
 
-a:link {
-    color: #669d89;
-    text-decoration: none;
-}
-
-
 a:visited {
     color:  #669d89;
 }
 
-
-a.active {
-    color: white;
-    background-color: #f27c7e;
-    padding: 10px;
-    border-radius: 5px;
-    
-    
-}
 
 
 .main{
