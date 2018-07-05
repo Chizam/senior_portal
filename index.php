@@ -39,10 +39,10 @@
         <style>
          a.red{
             color:black!important;
-            font-family: sans-serif;
+            font-family:'Oxygen', sans-serif;
             font-style: normal;
             font-size: 16px;
-    
+            font-weight: 100;
          }
          
          

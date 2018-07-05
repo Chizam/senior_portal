@@ -81,11 +81,10 @@ li{
         
           a.red{
             color:black!important;
-            font-family: sans-serif;
+            font-family:'Oxygen', sans-serif;
             font-style: normal;
             font-size: 16px;
-    
-    
+            font-weight: 100;
          }
          
          
@@ -98,7 +97,7 @@ li{
     display: none;
     position: absolute;
     background-color:#f4df90;
-    max-width: 250px;
+    max-width: 280px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1; 
 }
@@ -429,7 +428,7 @@ echo htmlentities("Invalid STudent Registration Id");
                                     <div class="form-group">
                                                            
                                                             <div class="col-sm-6" >
-                                                               <a href="http://portal.lsmjcmeiran.org/" style="color: #fff;"><span style="color: green;">Back to Result Checker</span></a>
+                                                               <a href="http://portal.lsmscmeiran.org/" style="color: #fff;"><span style="color: green;">Back to Result Checker</span></a>
                                                             </div>
                                                         </div>
 
